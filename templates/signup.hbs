@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="/signup.css">
+        <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">TravelTracker</div>
+        <div class="menu-toggle" id="menuToggle">&#9776;</div>
+        <div class="nav-container" id="navContainer">
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact_Us</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form action="/signup" method="POST">
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" name="password" required>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="/login">Login</a></p>
+    </div> 
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const navContainer = document.getElementById("navContainer");
+
+        menuToggle.addEventListener("click", function() {
+            navContainer.classList.toggle("active");
+            menuToggle.classList.toggle("open");
+        });
+    </script>
+</body>
+</html>

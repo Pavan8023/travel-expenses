@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Expense Tracker</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">TravelTracker</div>
+        <div class="menu-toggle" id="menuToggle">&#9776;</div>
+        <div class="nav-container" id="navContainer">
+            <ul class="nav-links">
+                <li><a href="">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contsct">Contact_Us</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Track Your Travel Expenses with Ease</h1>
+            <p>Manage your budget, control expenses, and enjoy your journey stress-free.</p>
+            <button class="cta" onclick="location.href='/login'">Get Started</button>
+        </div>
+        <div class="hero-image">
+        </div>
+    </section>
+
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const navContainer = document.getElementById("navContainer");
+
+        menuToggle.addEventListener("click", function() {
+            navContainer.classList.toggle("active");
+            menuToggle.classList.toggle("open");
+        });
+    </script>
+</body>
+</html>

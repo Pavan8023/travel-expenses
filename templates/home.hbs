@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/home.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <title>Travel Expense Tracker</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">TravelTracker</div>
+        <div class="menu-toggle" id="menuToggle">&#9776;</div>
+        <div class="nav-container" id="navContainer">
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact_Us</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header class="hero">
+        <h1>Plan & Track Your Travel Expenses</h1>
+        <button class="add-trip-btn">+ Add New Trip</button>
+    </header>
+
+    <!-- Hidden Trip Form -->
+    <div id="trip-form-container" class="trip-form hidden">
+        <h2>Add New Trip</h2>
+        <form id="trip-form">
+            <label for="trip-name">Trip Name:</label>
+            <input type="text" id="trip-name" required>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" required>
+
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date" required>
+
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date" required>
+
+            <label for="budget">Budget (₹):</label>
+            <input type="number" id="budget" required>
+
+            <button type="submit">Add Trip</button>
+            <button type="button" id="close-form">Cancel</button>
+        </form>
+    </div>
+
+    <main class="dashboard">
+        <section class="trips">
+            <h2>Your Trips</h2>
+            <table id="trip-table">
+                <thead>
+                    <tr>
+                        <th>Trip Name</th>
+                        <th>Location</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Budget (₹)</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="trip-table-body"></tbody>
+            </table>
+        </section>
+
+        <section class="expenses">
+            <h2>Expense Tracker</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Amount (₹)</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="expense-list"></tbody>
+            </table>
+
+            <button class="add-expense-btn">+ Add Expense</button>
+
+            <!-- Division Type Select Box -->
+            <div id="division-select-container">
+                <label for="division-select">Select Expense Type:</label>
+                <select id="division-select">
+                    <option value="manual">Manually Divide</option>
+                    <option value="auto">Automatically Divide</option>
+                </select>
+            </div>
+
+            <!-- Trip Selection Dropdown (Appears for Auto Division) -->
+            <div id="trip-select-container" class="hidden scale-up">
+                <label for="trip-select">Select a Trip:</label>
+                <select id="trip-select"></select>
+            </div>
+
+        <!-- Trip Selection Dropdown (Separate Div) -->
+        <div id="trip-select-container" class="trip-hidden">
+            <label for="trip-select">Select a Trip:</label>
+            <select id="trip-select"></select>
+        </div>
+
+<button id="generate-pdf" class="btn-primary">Generate PDF</button>
+        </section>
+
+        <div id="budget-warning" class="hidden">You can't add this amount! Budget limit exceeded.</div>
+        
+        <!-- Hidden Expense Form -->
+        <div id="expense-form-container" class="form-container hidden">
+            <h2>Add Expense</h2>
+            <form id="expense-form">
+                <div id="manual-expense-fields">
+                    <label>Category:</label>
+                    <select id="expense-category">
+                        <option value="Accommodation">Accommodation</option>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                    </select>
+
+                    <label>Amount (₹):</label>
+                    <input type="number" id="expense-amount" required>
+
+                    <label>Date:</label>
+                    <input type="date" id="expense-date" required>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn-primary">Add Expense</button>
+                    <button type="button" id="close-expense-form" class="btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+ 
+        <section class="charts">
+            <div id="trip-filter-container">
+                <div id="trip-filter">
+                </div>
+            </div>
+
+            <div id="budget-overview-container">
+                <h2>Budget Overview</h2>
+                <canvas id="expense-chart"></canvas>
+            </div>
+        </section>
+        
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/script.js"></script>
+    <script src="/chart.js"></script>
+</body>
+</html>

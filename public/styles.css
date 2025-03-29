@@ -1,0 +1,153 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background: url('/travel6.jpg') no-repeat center center/cover; */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/travel6.jpg');
+    color: white;
+    text-align: center;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* background: linear-gradient(135deg, #7752FE, #4B0082); */
+    padding: 50px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+    animation: slideIn 1s ease-out;
+}
+
+.hero-content h1 span {
+    color:  #95f85c;;
+    font-style: italic;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-top: 10px;
+    font-family: 'Playfair Display', serif;
+    animation: fadeIn 1.5s ease-in;
+}
+
+.cta-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #a6fb75;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    background: #8ef652;
+}
+
+/* About Section */
+.about {
+    background:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    color: #ffffff;
+    padding: 60px 10%;
+    border-radius: 20px;
+    margin: 40px auto;
+    max-width: 90%;
+    animation: fadeInUp 1.5s ease-in;
+}
+
+.about h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ead4ff;
+}
+
+/* Features Section */
+.features {
+    padding: 50px 10%;
+}
+
+.features h2{
+    margin-bottom: 50px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #ead4ff;
+}
+
+.feature-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.feature-box {
+    background:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.feature-box:hover {
+    transform: scale(1.1);
+}
+
+.feature-box h3 {
+    font-size: 22px;
+    color: #663399;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #4B0082;
+    font-size: 14px;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
